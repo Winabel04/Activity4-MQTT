@@ -1,0 +1,42 @@
+#div-broker, #div-pub, #div-sub{
+    background-color: rgb(95, 140, 224);
+    color: white;
+    border-radius: 6px;
+    
+}
+
+
+#form-broker,
+#form-pub,
+#form-sub, 
+#broker, 
+#status, 
+#pub-input-topic, 
+#pub-input-payload, 
+#sub-input-topic, 
+#broker1-button{
+    font-size: large;
+}
+
+#broker-button, 
+#pub-button, 
+#sub-button{
+    font-size: large;   
+    color: white;
+}
+
+.card{
+    background-color: SkyBlue;
+    border-radius: 10px;
+    box-shadow: 8px 8px 5px 6px gray;
+}
+
+#incoming-div{
+    background-color: rgb(97, 204, 231);
+}
+#pub-div {
+    background-color: rgb(240, 130, 207);
+}
+#sub-div{
+    background-color: rgb(97, 238, 179);
+}

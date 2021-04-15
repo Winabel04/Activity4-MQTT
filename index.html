@@ -1,0 +1,138 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT</title>
+
+    <!-- Added the Bootstrap CDN -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>MQTT over Web Socket</h1>
+    </div>
+    <div class="container">
+        <div class="card-deck">
+            <div class="card">
+                <div class="card-header" id="div-broker">
+                    <h2>Broker</h2>
+                </div>
+                <div class="card-body">
+                    <form id="form-broker">
+                        <div class="form-group">
+                            <label for="thisIsPublish">Address:</label>
+                            <input id="broker" class="form-control" type="text"
+                                value="wss://test.mosquitto.org:8081/mqtt">
+                        </div>
+                        <a id="broker-button" class="btn btn-primary" onclick="connect()">Connect</a>
+                        <button id="broker-button" class="btn btn-warning">Disconnect</button>
+                        <br>
+                        <br>
+                        <div class="form-group">
+                            <label>Status:</label>
+                            <input type="text" value="Press to connect...." id="status" class="form-control">
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="div-pub">
+                    <h2>Publish</h2>
+                </div>
+                <div class="card-body">
+                    <form id="form-pub">
+                        <div class="form-group">
+                            <label>Topic:</label>
+                            <input id="pub-input-topic" class="form-control" type="text" value="cloud">
+                        </div>
+                        <div class="form-group">
+                            <label>Payload:</label>
+                            <input id="pub-input-payload" class="form-control" type="text" value="strife">
+                        </div>
+                        <a id="pub-button" class="btn btn-primary" onclick="publish()">Publish</a>
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="div-sub">
+                    <h2>Subscribe</h2>
+                </div>
+                <div class="card-body">
+                    <form id="form-sub">
+                        <div class="form-group">
+                            <label for="thisIsPublish">Topic:</label>
+                            <input id="sub-input-topic" class="form-control" type="text" value="cloud">
+                        </div>
+                        <a id="sub-button" class="btn btn-primary" onclick="subscribe()">Subscribe</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-sm-4" id = "incoming-div">
+                <h2>Incoming Messages</h2>
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Payloads</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    <tbody id="incoming-table">
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="col-sm-4" id = "pub-div">
+                <h2>Publish Messages</h2>
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Payloads</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    <tbody id="pub-table">
+
+                    </tbody>
+
+                </table>
+            </div>
+            <div class="col-sm-4" id = "sub-div">
+                <h2>Subscribe Messages</h2>
+                <table class="table table-borderless">
+                    <tr>
+                        <th>Topic</th>
+                        <th>Timestamp</th>
+                    </tr>
+                    <tbody id="sub-table">
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./browserMqtt.js"></script>
+<script src="./index.js"></script>
+
+</html>
